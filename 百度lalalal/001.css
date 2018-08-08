@@ -1,0 +1,172 @@
+@charset "utf-8";
+/* CSS Document */
+/*---------------forall----------------*/
+*{
+	margin:0;
+	padding:0;
+	border:0;
+	}
+div,body{
+	margin:0;
+	padding:0;
+	border:0;
+	}
+ul,ol{
+	list-style:none;
+	}
+a{
+	text-decoration:none;
+	}
+p,a,h1,h2,h3,h4,h5,h6{
+	font-family:微软雅黑, Verdana, Arial;
+	}
+.clearfloat{
+	clear:both;
+	}
+.topclick li a:link {color: #000;text-decoration:underline;}
+.topclick li a:visited {color:black;text-decoration:underline;}
+.topclick li a:hover {color:blue;text-decoration:underline;}
+.topclick li a:active {color:blue;text-decoration:underline;}
+/*-------------------------------*/
+
+.abold{
+	font-weight:bold;
+}
+.overflow{
+	width:100%;
+	overflow:hidden;
+}
+.rightpart li{
+	padding:10px 15px;
+	float:right;
+}
+.rightpart li span{
+	padding:3px;
+	color:#fff;
+	background:#06C;
+}
+#main{
+	width:100%;
+	background-color:#FFF;
+	overflow:hidden;
+}
+.logo{
+	position: absolute;
+	left: 327px;
+	top: 152px;
+}
+#wrap{
+	height: 100%;
+	min-height: 600px;
+	width:100%;
+	background-color:#FFF;
+	margin:0 auto;
+	padding-bottom: 90px;
+}
+@media screen and (max-width: 900px){
+	#wrap{
+		width: 900px;
+	}
+}
+div#header{
+		width:100%;
+}
+div#footer{
+	width:100%;
+
+}
+img{
+	margin:0 auto;
+}
+/*---------------second ul----------------*/
+.second{position:relative;}
+.second ul{
+	border:2px solid #CCC;
+	width:150%;
+	display:none;
+	position:absolute;
+	left:-20%;
+	top:100%;
+	box-shadow:1px 1px 2px;
+}
+.second ul li { 
+	float:left;
+	width:70%;
+}
+.second ul a li:hover{ 
+	background:#06C;
+	color:#fff;
+}
+.second:hover ul{
+	display:block;
+}
+
+/*---------------more----------------*/
+.more{
+	position: relative;
+}
+
+.more ul{
+	display: none;
+	position: absolute;
+	top:0;
+	left:0;
+
+}
+.more ul div{
+	width: 100%;
+	display: none;
+	top: 0;
+	left: 0;
+	position: absolute;
+	height:100%;
+	border-left: 2px solid #CBB4B4;
+	background-color: #E4C4C4；
+}
+.more:hover ul{
+	display: block;
+}
+.more:hover ul div{
+	display: block;
+}
+
+/*---------------search----------------*/
+#seachertext{
+	width: 450px;
+	background: none;
+	height: 30px;
+	padding: 0 5px;
+	color: #000;
+	margin: 0 0;
+	position: absolute;
+	top: 308px;
+	left: 243px;
+	border: #CCC solid 1px;
+}
+#seachersubmit{
+	width: 100px;
+	background: none;
+	height: 30px;
+	padding: 0px 5px;
+	background-color: #06F;
+	color: #FFF;
+	margin: 0 0;
+	font-size: 20px;
+	position: absolute;
+	left: 693px;
+	top: 308px;
+	}
+#seacher{
+	left: 208px;
+	top: 251px;
+	}
+/*---------------footer---------------*/
+body{
+	position: relative;
+}
+.footer{
+	height: 85px;
+	margin-top: -85px;
+	text-align: center;
+}
+

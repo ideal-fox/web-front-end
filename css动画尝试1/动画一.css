@@ -1,0 +1,247 @@
+@charset "utf-8";
+/* CSS Document */
+/*---------initilization---------*/
+body,h1,p,figure,img{
+	margin:0;
+	padding:0;
+}
+figure{
+	position:relative;
+	width:33.33333333%;
+	height:350px;
+	overflow:hidden;
+	float:left;
+	
+}
+figcaption{
+	top:0;
+	height:0;
+	position:absolute;
+	font-family:"微软雅黑";
+	color:#FFF;
+}
+figure img{
+	opacity:0.8;
+	transition:all 0.5s;
+}
+figure figcaption p,h1,div,span{
+	transition:all 0.35s;
+	}
+
+@media screen and (max-width:600px){
+	figure{
+		width:100%;
+		}
+}
+@media screen and (min-width:601px) and (max-width:1000px){
+	figure{
+		width:50%;
+		}
+}
+@media screen and (min-width:1001px){
+	figure{
+		width:33.33333333%;
+		}
+}
+
+/*---------------photo1-----------*/
+.photo1{
+	background:#09F;
+	}
+.photo1 figcaption{
+	top:50%;
+	left:10%;
+}
+.photo1 figcaption p{
+	transform:translate(0,200px);
+}
+.photo1:hover figcaption p{
+	transform:translate(0,50px);
+}
+
+.photo1:hover img{
+	transform:translate(-50px);
+	opacity:0.5;
+
+}
+
+
+
+
+/*---------------photo2-----------*/
+.photo2{
+	background:#900;
+	}
+.photo2 figcaption{
+	top:10%;
+	left:10%;
+}
+.photo2 figcaption p:nth-of-type(1){						 	transition-delay:0.05s;
+}
+.photo2 figcaption p:nth-of-type(2){	 	    transition-delay:0.1s;
+}
+.photo2 figcaption p:nth-of-type(3){transition-delay:0.15s;
+}
+.photo2 figcaption p{
+	margin:5px 0px;
+	transform:translate(-250px,0px);
+	}
+.photo2:hover figcaption p{
+	transform:translate(0px,0px);
+}
+.photo2:hover img{
+	transform:translate(-50px);
+	opacity:0.5;
+
+}
+/*--------------photo3--------------*/
+.photo3{
+	background:#F03;
+	}
+.photo3 figcaption{
+	top:10%;
+	left:10%;
+	width:100%;
+	height:100%;
+}
+.photo3 figcaption div{
+	border:2px solid #FFF;
+	width:75%;
+	height:75%;
+	position:absolute;
+	top:3%;
+	left:2%;
+}
+.photo3 figcaption h1{
+	margin-top:5%;
+	margin-left:5%;
+}
+.photo3 figcaption p{
+	margin-left:5%;
+	transform:translate(0,50px);
+	opacity:0;
+}
+.photo3:hover figcaption p{
+	transform:translate(0,0);
+	opacity:1;
+}
+.photo3 figcaption div{
+	transform:translate(0,-350px) rotate(0deg);
+}
+.photo3:hover figcaption div{
+	transform:translate(0,0) rotate(360deg);
+}
+.photo3:hover img{
+	transform:translate(-50px);
+	opacity:0.5;
+
+}
+/*--------------photo4--------------*/
+.photo4{
+	background:#0FF;
+}
+.photo4 figcaption{
+	top:15%;
+	left:10%;
+}
+.photo4 figcaption p{
+	margin-top:5%;
+}
+.photo4 figcaption p{
+	transform:skew(90deg);
+}
+.photo4:hover figcaption p{
+	transform:skew(0deg);
+	transition-delay:0.2s;
+}
+.photo4:hover img{
+	opacity:0.5;
+}
+/*--------------photo5--------------*/
+.photo5{
+	background:#C99;
+}
+.photo5 figcaption{
+	width:100%;
+	height:100%;
+}
+.photo5 figcaption div{
+	border:2px solid #FFF;
+	width:80%;
+	height:80%;
+	position:absolute;
+	top:10%;
+	left:10%;
+	transform:scale(1.2,1.2);
+	opacity:0;
+}
+.photo5 figcaption h1{
+	margin-top:15%;
+	margin-left:15%;
+	transform:scale(1.2,1.2);	
+}
+.photo5 figcaption p{
+	margin-top:5%;
+	margin-left:15%;
+	transform:scale(1.2,1.2);
+	opacity:0;	
+}
+.photo5:hover figcaption div{
+	transform:scale(1,1);
+	opacity:1;
+}
+.photo5:hover img{
+	transform:scale(1.2,1.2);
+	opacity:0.5;
+}
+.photo5:hover figcaption h1{
+	transform:scale(1,1);
+}
+.photo5:hover figcaption p{
+	transform:scale(1,1);
+	opacity:1;
+}
+/*--------------photo6--------------*/
+.photo6 {
+	background:#663;
+}
+.photo6 figcaption{
+	width:100%;
+	height:100%;
+	transform:rotate(0deg);
+}
+.photo6 figcaption div{
+	background:#FFF;
+	opacity:0.8;
+	border: 2px solid #FFF;
+	position:absolute;
+	top:100%;
+	left:0;
+	width:120%;
+	height:120%;
+}
+.photo6:hover figcaption div{
+	transform:rotate(-15deg);
+	transform-origin:0 0;
+}
+.photo6 figcaption h1{
+	margin-top:10%;
+	margin-left:10%;
+}
+.photo6 figcaption p{
+	position:absolute;
+	top:80%;
+	left:80%;
+	color:#000;
+	opacity:0;
+	transform:translate(0,50px);
+}
+.photo6:hover img{
+	opacity:0.5;
+}	
+.photo6:hover figcaption p{
+	opacity:1;
+	transform:translate(0,0);
+	transition-delay:0.1s;
+}	
+

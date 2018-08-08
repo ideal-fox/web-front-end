@@ -1,0 +1,111 @@
+@charset "utf-8";
+/* CSS Document */
+/*--------------photo7--------------*/	
+.photo7{
+	background:#FFF;
+}
+.photo7 figcaption{
+	width:100%;
+	height:100%;
+}
+.photo7 figcaption div:nth-of-type(1){
+	width:90%;
+	height:70%;
+	position:absolute;
+	top:15%;
+	left:5%;
+	border-bottom:2px solid #FFF;
+	border-top:2px solid #FFF;
+	transform:scale(1.2,1.2);
+	opacity:0;
+}
+.photo7 figcaption div:nth-of-type(2){
+	width:70%;
+	height:90%;
+	position:absolute;
+	top:5%;
+	left:15%;
+	border-left:2px solid #FFF;
+	border-right:2px solid #FFF;
+	transform:scale(1.2,1.2);
+	opacity:0;
+}
+.photo7:hover figcaption div:nth-of-type(1){
+	transform:scale(1,1);
+	opacity:1;
+}
+.photo7:hover figcaption div:nth-of-type(2){
+	transform:scale(1,1);
+	opacity:1;
+}
+.photo7 figcaption h1{
+	margin-top:15%;
+	margin-left:15%;
+}
+.photo7 figcaption p{
+	margin-top:5%;
+	margin-left:15%;
+	transform:translate(0,50px);
+	opacity:0;
+}
+.photo7:hover figcaption p{
+	transform:translate(0,0);
+	opacity:1;
+}
+/*--------------photo8--------------*/	
+
+.photo8{
+	background:#039;
+}
+.photo8 figcaption {
+	width:100%;
+	height:100%;
+}
+.photo8 figcaption div{
+
+	width:70%;
+	height:70%;
+	position:absolute;
+	top:15%;
+	left:15%;
+	background:#fff;
+	opacity:0.3;
+	transform:scale(0,0);
+}
+.photo8:hover figcaption div{
+	transform:scale(1,1);
+	opacity:0.5;
+	
+}
+.photo8:hover img{
+	opacity:0.5;
+}
+.photo8 figcaption h1{
+	margin-top:30%;
+	margin-left:30%;
+	color:#000;
+	opacity:0;
+}
+.photo8 figcaption p{
+	margin-top:5%;
+	margin-left:30%;
+	color:#000;
+	opacity:0;
+}
+.photo8:hover figcaption h1{
+	transition-delay:0.1s;
+	opacity:1;
+	margin-top:15%;
+	margin-left:15%;
+}
+.photo8:hover figcaption p{
+	transition-delay:0.25s;
+	margin-left:15%;
+	opacity:1;
+}
+
+
+
+
+
+
