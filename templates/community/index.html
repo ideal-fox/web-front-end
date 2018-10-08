@@ -1,0 +1,243 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'open-iconic-master/font/css/open-iconic-bootstrap.css' %}">
+    <title>knownow</title>
+  </head>
+  <style>
+  .show{
+  display: block;
+  }
+  .hide{
+  display: none;
+  }
+  </style>
+  <body class="bg-light text-dark">
+    {% csrf_token %}
+    <div class="card">
+      <nav class="navbar navbar-expand-md navbar-light bg-light">
+        <a class="navbar-brand  mb-0 h1" href="#">知否</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="container-fluid row collapse navbar-collapse" id="navbarSupportedContent">
+          
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/community/">首页 <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">发现</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">话题</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-md-0 ">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0 " type="submit">Search</button>
+          </form>
+          <span class="oi oi-bell col-sm-1"></span>
+          {%if is_authenticated == 'false'%}
+          <button type="button" class=" btn btn-primary " data-toggle="modal" data-target="#Modal" data-whatever="user">登入</button>
+          <div class="modal fade" id="Modal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="ModalLabel">Log in</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="alert alert-danger alert-loginerror hide" role='alert'>用户名不存在或者密码错误</div>
+                  <form>
+                    <div class="form-group">
+                      <label for="username" class="col-form-label">用户名:</label>
+                      <input type="text" class="form-control" id="username" name='username'>
+                    </div>
+                    <div class="form-group">
+                      <label for="password" class="col-form-label">密码:</label>
+                      <input type="password" class="form-control" id="password" name='password'>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button class="btn btn-primary btn-login">登入</button>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          <button type="button" class=" btn btn-primary " data-toggle="modal" data-target="#Modal_sub" data-whatever="user">注册</button>
+          <div class="modal fade" id="Modal_sub" tabindex="-1" role="dialog" aria-labelledby="ModalLabel_sub" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="ModalLabel_sub">用户注册</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <div class="alert alert-danger alert-regerror hide" role='alert'>注册失败</div>
+                  <form>
+                    <div class="form-group">
+                      <label for="email_sub" class="col-form-label">邮箱:</label>
+                      <input type="text" class="form-control" id="email_sub" name='email'>
+                    </div>
+                    <div class="form-group">
+                      <label for="username_sub" class="col-form-label">用户名:</label>
+                      <input type="text" class="form-control" id="username_sub" name='username'>
+                    </div>
+                    <div class="form-group">
+                      <label for="password_sub" class="col-form-label">密码:</label>
+                      <input type="password" class="form-control" id="password_sub" name='password'>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button class="btn btn-primary btn-reg">注册</button>
+                </div>
+                
+              </div>
+            </div>
+          </div>
+          {%else%}
+          <span>欢迎您，{{user}}</span>
+          <a class='btn btn-default' href="logout/">注销</a>
+          {%endif%}
+        </div>
+      </nav>
+      
+    </div>
+    <!--提问栏-->
+    <div class="container">
+      <div class="row ">
+        <div class="col-md-8 ">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card mb-2 mt-2">
+                <ul class="nav">
+                  <li class="nav-item">
+                    <a  href="#" class="btn " data-toggle="modal" data-target="#Modal_q"  data-whatever="question">提问</a>
+                    <div class="modal fade" id="Modal_q" tabindex="-1" role="dialog" aria-labelledby="ModalLabel_q" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="ModalLabel_q">写下你的问题：</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <form>
+                              <div class="form-group">
+                                <label for="q_name" class="col-form-label">标题:</label>
+                                <input type="text" class="form-control" id="q_name">
+                              </div>
+                              <div class="form-group">
+                                <label for="q_text" class="col-form-label">问题描述:</label>
+                                <textarea class="form-control" id="q_text"></textarea>
+                              </div>
+                            </form>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary btn-newquestion">提交问题</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">回答</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="#">写文章</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#" class="btn" data-toggle="modal" data-target="#Modal_m"  data-whatever="question">写想法</a>
+                    <div class="modal fade" id="Modal_m" tabindex="-1" role="dialog" aria-labelledby="ModalLabel_m" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title" id="ModalLabel_m">写下你的想法：</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <form>
+                              <div class="form-group">
+                                <textarea class="form-control" id="m_text"></textarea>
+                              </div>
+                            </form>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">发布</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link disabled" href="#">草稿</a>
+                  </li>
+                </ul>
+                
+              </div>
+            </div>
+          </div>
+          
+          
+          {%if question_list%}
+          {%for item in question_list%}
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card mt-3">
+                <div class="card-body">
+                  <h4 class="card-title"><a href="/community/{{item.pk}}">{{item.title}}</a></h4>
+                  <h6 class="card-subtitle mb-2 text-muted">{{item.raiser}}</h6>
+                  <p class="card-text">{{item.content}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          {%endfor%}
+          {%endif%}
+        </div>
+        <div class="col-md-4 ">
+          <div class="card mt-3">
+            <div class="card-body">
+              <h4 class="card-title">Card title</h4>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+          <div class="card mt-3">
+            <div class="card-body">
+              <h4 class="card-title">Card title</h4>
+              <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+              <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+    <script src="{% static 'js/bootstrap.bundle.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+  </body>
+</html>
